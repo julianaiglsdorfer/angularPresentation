@@ -4,10 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './components/room/room.component';
 import { BookingsComponent } from './components/bookings/bookings.component';
-import {AppRoutingModule} from "./app-routing.module";
+import { AppRoutingModule} from "./app-routing.module";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RoomApiService } from './service/room-api.service';
+import { BookedRoomsComponent } from './components/bookedRooms/bookedRooms.component';
+import { BookingService } from './service/booking.service';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -15,14 +20,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RoomComponent,
     BookingsComponent,
     NavBarComponent,
-    HomeComponent
+    HomeComponent,
+    BookedRoomsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    RoomApiService,
+    BookingService,
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

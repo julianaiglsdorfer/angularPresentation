@@ -1,12 +1,37 @@
 <div>
-  <div class="tablecontainer">
+  <div>
+    <label for="from">Von</label>
+    <input id="from" placeholder="Von" type="text" [(ngModel)]="searchModel.from">
+    <br>
+    <input id="to" placeholder="Bis" type="text" [(ngModel)]="searchModel.to">
+    <br>
+    <input id="size" placeholder="Größe" type="number" [(ngModel)]="searchModel.size">
+    <br>
+    <input id="price" placeholder="Preis" type="number" [(ngModel)]="searchModel.price">
+    <br>
+    <input id="persons" placeholder="Personen" type="number" [(ngModel)]="searchModel.persons">
+    <br>
+    <label for="singlebed">Einzelbett</label>
+    <input id="singlebed" placeholder="Einzelbett" type="checkbox" [(ngModel)]="searchModel.singleBed">
+    <br>
+    <label for="doublebed">Doppelbett</label>
+    <input id="doublebed" placeholder="Doppelbett" type="checkbox" [(ngModel)]="searchModel.doubleBed">
+    <br>
+    <label for="balcony">Balkon</label>
+    <input id="balcony" placeholder="Balkon" type="checkbox" [(ngModel)]="searchModel.balcony">
+    <br>
+    <button id="submit" type="submit" (click)="searchFreeRooms()">SEARCH</button>
+  </div>
+
+  <div class="tablecontainer" *ngIf="rooms.length > 0">
     <table class="table table-hover">
       <thead>
       <tr>
         <th>Room No</th>
-        <th>Descriprion</th>
+        <th>Type</th>
         <th>Price</th>
         <th>Capacity</th>
+        <th>Size</th>
         <th>Single Beds</th>
         <th>Double Beds</th>
         <th>Balcony</th>
@@ -14,12 +39,13 @@
       </thead>
       <tbody>
       <tr *ngFor="let room of rooms">
-        <td><span>{{room.roomNo}}</span></td>
-        <td><span>{{room.description}}</span></td>
+        <td><span>{{room.nr}}</span></td>
+        <td><span>{{room.type}}</span></td>
         <td><span>{{room.price}}</span></td>
         <td><span>{{room.capacity}}</span></td>
-        <td><span>{{room.numberSingleBeds}}</span></td>
-        <td><span>{{room.numberDoubleBeds}}</span></td>
+        <td><span>{{room.size}}</span></td>
+        <td><span>{{room.noOfSingleBeds}}</span></td>
+        <td><span>{{room.noOfDoubleBeds}}</span></td>
         <td><span>{{room.balcony}}</span></td>
       </tr>
       </tbody>

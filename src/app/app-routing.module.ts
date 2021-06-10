@@ -5,10 +5,15 @@ import {RoomComponent} from "./components/room/room.component";
 import {AppComponent} from "./app.component";
 import {BookingsComponent} from "./components/bookings/bookings.component";
 import {HomeComponent} from "./components/home/home.component";
+import { BookedRoomsComponent } from './components/bookedRooms/bookedRooms.component';
 
 const routes: Routes = [
   {
-    path: 'room',
+    path: 'bookedRooms',
+    component: BookedRoomsComponent
+  },
+  {
+    path: 'freeRooms',
     component: RoomComponent,
   },
   {

@@ -1,9 +1,9 @@
 <h1>Book rooms</h1>
 <div></div>
-<h2>See all bookable rooms</h2>
+<h2>See all booked rooms</h2>
 
 
-<div *ngIf="allRooms !== null && allRooms !==undefined && allRooms.length > 0">
+<div *ngIf="rooms !== null && rooms !==undefined && rooms.length > 0">
   <div class="tablecontainer">
     <table class="table table-hover">
       <thead>
@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let room of allRooms">
+        <tr *ngFor="let room of rooms">
           <td><span>{{room.nr}}</span></td>
           <td><span>{{room.type}}</span></td>
           <td><span>{{room.price}}</span></td>
@@ -26,16 +26,11 @@
           <td><span>{{room.size}}</span></td>
           <td><span>{{room.noOfSingleBeds}}</span></td>
           <td><span>{{room.balcony}}</span></td>
-          <td>
-            <span>
-              <button class="btn btn-primary bookButton" (click)="bookRoom(room)">Book room</button>
-            </span>
-          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-<div *ngIf="allRooms === null || allRooms ===undefined || allRooms.length === 0">
-  <p>NO bookable rooms available</p>
+<div *ngIf="rooms === null || rooms ===undefined || rooms.length === 0">
+  <p>No rooms are booked</p>
 </div>
