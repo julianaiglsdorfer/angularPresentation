@@ -12,10 +12,10 @@
     <input id="persons" placeholder="Personen" type="number" [(ngModel)]="searchModel.persons">
     <br>
     <label for="singlebed">Einzelbett</label>
-    <input id="singlebed" placeholder="Einzelbett" type="checkbox" [(ngModel)]="searchModel.singleBed">
+    <input id="singlebed" placeholder="Einzelbett" type="number" [(ngModel)]="searchModel.singleBed">
     <br>
     <label for="doublebed">Doppelbett</label>
-    <input id="doublebed" placeholder="Doppelbett" type="checkbox" [(ngModel)]="searchModel.doubleBed">
+    <input id="doublebed" placeholder="Doppelbett" type="number" [(ngModel)]="searchModel.doubleBed">
     <br>
     <label for="balcony">Balkon</label>
     <input id="balcony" placeholder="Balkon" type="checkbox" [(ngModel)]="searchModel.balcony">
@@ -44,8 +44,8 @@
         <td><span>{{room.price}}</span></td>
         <td><span>{{room.capacity}}</span></td>
         <td><span>{{room.size}}</span></td>
-        <td><span>{{room.noOfSingleBeds}}</span></td>
-        <td><span>{{room.noOfDoubleBeds}}</span></td>
+        <td><span>{{room.noofsinglebeds}}</span></td>
+        <td><span>{{room.noofdoublebeds}}</span></td>
         <td><span>{{room.balcony}}</span></td>
       </tr>
       </tbody>

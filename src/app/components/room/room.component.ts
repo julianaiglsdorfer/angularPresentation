@@ -15,7 +15,7 @@ export class RoomComponent implements OnInit {
   constructor(
     public roomApiService: RoomApiService,
   ) {
-    this.searchModel = new SearchModel("", "", 0, 0, 0, false, false, false);
+    this.searchModel = new SearchModel("", "", 0, 0, 0, 0, 0, false);
   }
 
   ngOnInit(): void {
@@ -23,11 +23,9 @@ export class RoomComponent implements OnInit {
 
   searchFreeRooms() {
     console.log('freeRooms');
-    this.roomApiService.getAllRooms().subscribe(
+    console.log(this.searchModel);
+    this.roomApiService.getFreeRooms(this.searchModel).subscribe(
       response => this.rooms = response,
     );
-    // this.roomApiService.getFreeRooms(this.searchModel).subscribe(
-    //   response => this.rooms = response,
-    // );
   }
 }

@@ -14,21 +14,21 @@ export class RoomApiService {
   }
 
   getFreeRooms(searchModel: SearchModel) {
-
+    console.log(searchModel.price);
     const httpOptions = {
       headers: { 'Content-Type': 'application/json' },
       params: {
-        param1: searchModel.from,
-        param2: searchModel.to,
-        param3: searchModel.price,
-        param4: searchModel.size,
-        param5: searchModel.persons,
-        param6: searchModel.singleBed,
-        param7: searchModel.doubleBed,
-        param8: searchModel.balcony
+        from: searchModel.from,
+        to: searchModel.to,
+        price: searchModel.price,
+        size: searchModel.size,
+        persons: searchModel.persons,
+        singleBed: searchModel.singleBed,
+        doubleBed: searchModel.doubleBed,
+        balcony: searchModel.balcony
       }
     };
 
-    return this.httpClient.get<Room[]>('http://localhost:8080/api/freeRooms', httpOptions);
+    return this.httpClient.post<Room[]>('http://localhost:8080/api/freeRooms', searchModel);
   }
 }
