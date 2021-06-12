@@ -25,8 +25,8 @@ export class RoomApiService {
           const httpOptions = {
             headers: { 'Content-Type': 'application/json' },
             params: {
-              from: searchModel.from,
-              to: searchModel.to,
+              from: searchModel.checkindate,
+              to: searchModel.checkoutdate,
               price: searchModel.price,
               size: searchModel.size,
               persons: searchModel.persons,

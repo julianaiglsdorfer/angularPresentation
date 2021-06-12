@@ -14,8 +14,8 @@ export class Room {
 
 export class SearchModel {
 
-  public from: string;
-  public to: string;
+  public checkindate: string;
+  public checkoutdate: string;
   public size: number;
   public price: number;
   public persons: number;
@@ -24,9 +24,9 @@ export class SearchModel {
   public balcony: boolean;
 
 
-  constructor(from: string, to: string, size: number, price: number, persons: number, singleBed: number, doubleBed: number, balcony: boolean) {
-    this.from = from;
-    this.to = to;
+  constructor(checkindate: string, checkoutdate: string, size: number, price: number, persons: number, singleBed: number, doubleBed: number, balcony: boolean) {
+    this.checkindate = checkindate;
+    this.checkoutdate = checkoutdate;
     this.size = size;
     this.price = price;
     this.persons = persons;

@@ -22,7 +22,7 @@ export class BookingsComponent implements OnInit {
   ngOnInit(): void {
     this.bookingService.getAllBookings().subscribe(response => {
       this.allBookings = response;
-      console.log(this.allBookings[0].checkInDate);
+      console.log(this.allBookings[0].checkindate);
     });
   }
 
