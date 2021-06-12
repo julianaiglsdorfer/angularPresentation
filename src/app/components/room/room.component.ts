@@ -28,4 +28,8 @@ export class RoomComponent implements OnInit {
       response => this.rooms = response,
     );
   }
+
+  public bookRoom(rNr: number){
+    console.log("funkt");
+  }
 }

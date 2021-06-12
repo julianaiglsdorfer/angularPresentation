@@ -3,6 +3,7 @@ import { Room } from '../../model/room';
 import { RoomComponent } from '../room/room.component';
 import { RoomApiService } from '../../service/room-api.service';
 import { BookingService } from '../../service/booking.service';
+import {Booking} from '../../model/booking';
 
 @Component({
   selector: 'app-bookings',
@@ -12,13 +13,17 @@ import { BookingService } from '../../service/booking.service';
 export class BookingsComponent implements OnInit {
 
   public allRooms: Room[] = [];
+  public allBookings: Booking[] = []
 
   public availableRooms: Room[] = [];
 
   constructor(public roomApiService: RoomApiService, public bookingService: BookingService) { }
 
   ngOnInit(): void {
-    //this.roomApiService.getRooms().subscribe();
+    this.bookingService.getAllBookings().subscribe(response => {
+      this.allBookings = response;
+      console.log(this.allBookings[0].checkInDate);
+    });
   }
 
   public bookRoom(room: Room) {

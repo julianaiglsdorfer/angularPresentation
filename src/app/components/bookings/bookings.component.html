@@ -1,41 +1,32 @@
-<h1>Book rooms</h1>
+<h1>Booking History</h1>
 <div></div>
-<h2>See all bookable rooms</h2>
+<h2>See all bookings</h2>
 
 
-<div *ngIf="allRooms !== null && allRooms !==undefined && allRooms.length > 0">
+<div *ngIf="allBookings !== null && allBookings !==undefined && allBookings.length > 0">
   <div class="tablecontainer">
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
       <thead>
         <tr>
-          <th>Room No</th>
-          <th>Descriprion</th>
-          <th>Price</th>
-          <th>Capacity</th>
-          <th>Single Beds</th>
-          <th>Double Beds</th>
-          <th>Balcony</th>
+          <th>Booking Number</th>
+          <th>Checkin Date</th>
+          <th>Checkout Date</th>
+          <th>Room Number</th>
+          <th>Booking Aktiv</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let room of allRooms">
-          <td><span>{{room.nr}}</span></td>
-          <td><span>{{room.type}}</span></td>
-          <td><span>{{room.price}}</span></td>
-          <td><span>{{room.capacity}}</span></td>
-          <td><span>{{room.size}}</span></td>
-          <td><span>{{room.noofsinglebeds}}</span></td>
-          <td><span>{{room.balcony}}</span></td>
-          <td>
-            <span>
-              <button class="btn btn-primary bookButton" (click)="bookRoom(room)">Book room</button>
-            </span>
-          </td>
+        <tr *ngFor="let booking of allBookings">
+          <td><span>{{booking.bookingNo}}</span></td>
+          <td><span>{{booking.checkInDate}}</span></td>
+          <td><span>{{booking.checkOutDate}}</span></td>
+          <td><span>{{booking.roomNo}}</span></td>
+          <td><span>{{booking.bookingActive}}</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-<div *ngIf="allRooms === null || allRooms ===undefined || allRooms.length === 0">
-  <p>NO bookable rooms available</p>
+<div *ngIf="allBookings === null || allBookings ===undefined || allBookings.length === 0">
+  <p>There are no bookings</p>
 </div>
