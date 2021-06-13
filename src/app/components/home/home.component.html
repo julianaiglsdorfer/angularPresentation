@@ -1,9 +1,9 @@
-<h2>Hello World: ngIf!</h2>
+<h2>Hotel-Room-Service</h2>
 <button (click)="onEditClick()">Make text editable!</button>
-<div *ngIf="canEdit; else noEdit">
+<div *ngIf="noExpand; else expand">
   <p>You can edit the following paragraph.</p>
 </div>
-<ng-template #noEdit>
+<ng-template #expand>
   <p>The following paragraph is read only. Try clicking the button!</p>
 </ng-template>
-<p [contentEditable]="canEdit">{{ message }}</p>
+<p [contentEditable]="noExpand">{{ message }}</p>

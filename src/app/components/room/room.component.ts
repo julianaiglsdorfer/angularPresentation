@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Room, SearchModel} from "../../model/room";
+import {Room} from "../../model/room";
 import { RoomApiService } from '../../service/room-api.service';
+import {SearchModel} from "../../model/searchModel";
+import {BookingService} from "../../service/booking.service";
 
 @Component({
   selector: 'app-room',
@@ -14,41 +16,35 @@ export class RoomComponent implements OnInit {
   searchModel: SearchModel;
 
   constructor(
-    public roomApiService: RoomApiService,
+    private roomApiService: RoomApiService,
+    private bookingService: BookingService
   ) {
-    this.searchModel = new SearchModel("", "", 0, 0, 0, 0, 0, false);
+    this.searchModel = new SearchModel("", "", 0, 50, 0, 0, 0, false);
   }
 
   ngOnInit(): void {
   }
 
   searchFreeRooms() {
-    console.log('freeRooms');
-    console.log(this.searchModel);
-
-
-    let fromDate: Date = new Date(Number(this.searchModel.checkindate.substr(0,4)), Number(this.searchModel.checkindate.substr(4,2)), Number(this.searchModel.checkindate.substr(6,2)));
-    let toDate: Date = new Date(Number(this.searchModel.checkoutdate.substr(0,4)), Number(this.searchModel.checkoutdate.substr(4,2)), Number(this.searchModel.checkoutdate.substr(6,2)))
-
-    if(fromDate < toDate){
-      console.log("From Tag: " + fromDate.getDay());
-      console.log("From Monat: " + fromDate.getMonth());
-      console.log("From Jahr: " + fromDate.getFullYear());
-      console.log("To Tag: " + fromDate.getDay());
-      console.log("To Monat: " + fromDate.getMonth());
-      console.log("To Jahr: " + fromDate.getFullYear());
+    if(this.searchModel.checkindate < this.searchModel.checkoutdate){
       this.roomApiService.getFreeRooms(this.searchModel).subscribe(
         response => this.rooms = response,
       );
     }
-
     else{
       alert("Bitte beachten sie, dass das Checkindatum vor dem Checkout liegt, und dass das Format yyyy-mm-dd ist!");
     }
-
   }
 
-  public bookRoom(rNr: number){
-    console.log("funkt");
+  public bookRoom(rNr: string){
+    this.bookingService.bookRoom(this.searchModel.checkindate, this.searchModel.checkoutdate, rNr).subscribe(
+      response => {
+        if(response) {
+          alert('Buchung von Zimmer ' + response.roomno + ' erfolgreich');
+        } else {
+          alert('Keine buchung möglich');
+        }
+      }
+    );
   }
 }

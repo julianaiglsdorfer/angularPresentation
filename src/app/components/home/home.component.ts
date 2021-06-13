@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   message = 'I\'m read only!';
-  canEdit = false;
+  noExpand = false;
 
   constructor() { }
 
@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
   }
 
   onEditClick() {
-    this.canEdit = !this.canEdit;
-    if (this.canEdit) {
+    this.noExpand = !this.noExpand;
+    if (this.noExpand) {
       this.message = 'You can edit me!';
     } else {
       this.message = 'I\'m read only!';

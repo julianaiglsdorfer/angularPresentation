@@ -1,47 +1,47 @@
 <div>
-  
+
   <div class="form">
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="from">Von</label>
       <div class="col-sm-10">
         <input class="form-control" id="from" placeholder="jjjj-mm-dd" type="text" [(ngModel)]="searchModel.checkindate">
-      </div>      
+      </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="from">Bis</label>
       <div class="col-sm-10">
         <input class="form-control" id="to" placeholder="jjjj-mm-dd" type="text" [(ngModel)]="searchModel.checkoutdate">
-      </div>      
+      </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="from">Größe</label>
       <div class="col-sm-10">
-        <input class="form-control" id="size" placeholder="Gr��e" type="number" [(ngModel)]="searchModel.size">
-      </div>      
+        <input class="form-control" id="size" placeholder="Größe" type="number" [(ngModel)]="searchModel.size">
+      </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="from">Preis</label>
       <div class="col-sm-10">
         <input class="form-control" id="price" placeholder="Preis" type="number" [(ngModel)]="searchModel.price">
-      </div>      
+      </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="from">Anzahl Personen</label>
       <div class="col-sm-10">
         <input class="form-control" id="persons" placeholder="Personen" type="number" [(ngModel)]="searchModel.persons">
-      </div>      
+      </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="from">Einzelbett</label>
       <div class="col-sm-10">
         <input class="form-control" id="singlebed" placeholder="Einzelbett" type="number" [(ngModel)]="searchModel.singleBed">
-      </div>      
+      </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label" for="from">Doppelbett</label>
       <div class="col-sm-10">
         <input class="form-control" id="doublebed" placeholder="Doppelbett" type="number" [(ngModel)]="searchModel.doubleBed">
-      </div>      
+      </div>
     </div>
     <div class="form-group row">
       <div class="col-sm-2">
@@ -54,13 +54,13 @@
       </div>
     </div>
 
-    <div *ngIf="searchModel.checkindate && searchModel.checkoutdate && searchModel.size && searchModel.price && searchModel.persons && searchModel.singleBed && searchModel.doubleBed">
+    <div *ngIf="searchModel.checkindate && searchModel.checkoutdate">
       <button  class="btn btn-primary mb-2" id="submit" type="submit" (click)="searchFreeRooms()">SEARCH</button>
     </div>
     <br>
-    <div *ngIf="!searchModel.checkindate || !searchModel.checkoutdate && searchModel.size || !searchModel.price && searchModel.persons || !searchModel.singleBed || !searchModel.doubleBed">
+    <div *ngIf="!searchModel.checkindate || !searchModel.checkoutdate">
       <button  class="btn btn-primary mb-2" id="submit" type="submit" (click)="searchFreeRooms()" disabled>SEARCH</button>
-    </div>  
+    </div>
   </div>
 
   <div class="tablecontainer" *ngIf="rooms.length > 0">
@@ -88,7 +88,7 @@
         <td><span>{{room.noofsinglebeds}}</span></td>
         <td><span>{{room.noofdoublebeds}}</span></td>
         <td><span>{{room.balcony}}</span></td>
-        <td><button id="bookRoom" type="submit" (click)="bookRoom(room.nr)"></button></td>
+        <td><button id="bookRoom" class="btn btn-primary mb-2" type="submit" (click)="bookRoom(room.nr)">BOOK</button></td>
       </tr>
       </tbody>
     </table>

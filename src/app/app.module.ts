@@ -8,7 +8,6 @@ import { AppRoutingModule} from "./app-routing.module";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { RoomApiService } from './service/room-api.service';
-import { BookedRoomsComponent } from './components/bookedRooms/bookedRooms.component';
 import { BookingService } from './service/booking.service';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
@@ -21,7 +20,6 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     BookingsComponent,
     NavBarComponent,
     HomeComponent,
-    BookedRoomsComponent
   ],
   imports: [
     BrowserModule,

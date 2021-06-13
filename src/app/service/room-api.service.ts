@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import {Room, SearchModel} from '../model/room';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {Room} from '../model/room';
+import {HttpClient} from "@angular/common/http";
+import {SearchModel} from "../model/searchModel";
 
 
 @Injectable()
@@ -14,31 +15,8 @@ export class RoomApiService {
     return this.httpClient.get<Room[]>('http://localhost:8080/api/allRooms');
   }
 
-
-
   getFreeRooms(searchModel: SearchModel) {
     console.log(searchModel.price);
-    //annahme: from, to, persons and beds must be input-params
-    //all crits
-    if(searchModel.price > 0 && searchModel.size > 0 && searchModel.balcony)
-    {
-          const httpOptions = {
-            headers: { 'Content-Type': 'application/json' },
-            params: {
-              from: searchModel.checkindate,
-              to: searchModel.checkoutdate,
-              price: searchModel.price,
-              size: searchModel.size,
-              persons: searchModel.persons,
-              singleBed: searchModel.singleBed,
-              doubleBed: searchModel.doubleBed,
-              balcony: searchModel.balcony
-            }
-          };
-          
-    }
     return this.httpClient.post<Room[]>('http://localhost:8080/api/freeRooms', searchModel);
-
-    
   }
 }
