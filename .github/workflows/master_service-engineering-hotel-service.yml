@@ -50,6 +50,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'service-engineering-hotel-service'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_d1879f979ede4303a3d25e1f1ecb5650 }}
-        package: .
+        package: ./dist/PresentationServiceEngineering
