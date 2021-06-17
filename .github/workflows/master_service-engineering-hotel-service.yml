@@ -50,5 +50,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'service-engineering-hotel-service'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d1879f979ede4303a3d25e1f1ecb5650 }}
+        publish-profile: $
         package: ./dist/PresentationServiceEngineering
