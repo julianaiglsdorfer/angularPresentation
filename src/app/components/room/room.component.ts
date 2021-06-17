@@ -19,7 +19,7 @@ export class RoomComponent implements OnInit {
     private roomApiService: RoomApiService,
     private bookingService: BookingService
   ) {
-    this.searchModel = new SearchModel("", "", 0, 50, 0, 0, 0, false);
+    this.searchModel = new SearchModel("", "", 0, 300, 0, 0, 0, false);
   }
 
   ngOnInit(): void {
