@@ -19,7 +19,7 @@ export class BookingService {
   }
 
   getAllBookings(){
-    return this.httpClient.get<Booking[]>('http://localhost:8080/api/allBookings');
+    return this.httpClient.get<Booking[]>('https://service-engineering-hotel-api.azurewebsites.net/api/allBookings');
   }
 
   bookRoom(from: string, to: string, rNr: string) {
@@ -28,10 +28,10 @@ export class BookingService {
     booking.checkoutdate = to;
     booking.roomno = rNr;
     booking.bookingActive = true;
-    return this.httpClient.post<Booking>('http://localhost:8080/api/addBooking', booking);
+    return this.httpClient.post<Booking>('https://service-engineering-hotel-api.azurewebsites.net/api/addBooking', booking);
   }
 
   deleteBooking(bookingno: number): Observable<Object> {
-    return this.httpClient.delete('http://localhost:8080/api/deleteBooking/' + bookingno);
+    return this.httpClient.delete('https://service-engineering-hotel-api.azurewebsites.net/api/deleteBooking/' + bookingno);
   }
 }

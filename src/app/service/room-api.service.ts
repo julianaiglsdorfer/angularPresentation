@@ -12,11 +12,11 @@ export class RoomApiService {
   ) {}
 
   getAllRooms() {
-    return this.httpClient.get<Room[]>('http://localhost:8080/api/allRooms');
+    return this.httpClient.get<Room[]>('https://service-engineering-hotel-api.azurewebsites.net/api/allRooms');
   }
 
   getFreeRooms(searchModel: SearchModel) {
     console.log(searchModel.price);
-    return this.httpClient.post<Room[]>('http://localhost:8080/api/freeRooms', searchModel);
+    return this.httpClient.post<Room[]>('https://service-engineering-hotel-api.azurewebsites.net/api/freeRooms', searchModel);
   }
 }
